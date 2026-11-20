@@ -318,7 +318,7 @@ footer a{color:var(--muted)}
       var j=await r.json();
       if(!j.ok)throw new Error(j.error||'failed');
       form.reset();btn.textContent='Sent';
-      show('Thank you. Your application is in (ref '+j.ref+'). We will email the shortlist on Tuesday 24 November.',true);
+      show('Thank you. Your application is in (ref '+j.ref+'). We will email the shortlist on Tuesday 24 November from connect@msmadeleine.com. If you do not see it, check Promotions and Spam.',true);
     }catch(err){
       btn.disabled=false;btn.textContent='Send my application';
       show(ERR[err.message]||'Something went wrong. Please try again, or email your portfolio to connect@msmadeleine.com.',false);
