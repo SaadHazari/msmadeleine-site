@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ms. Madeleine · Designer brief</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="The brief for designers on the Ms. Madeleine shortlist.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#F2ECE1">
+<link rel="stylesheet" href="/assets/fonts.css">
+<style>
+:root{
+  --cream:#F2ECE1;--ivory:#FBF8F2;--ink:#262420;--muted:#6A655C;--faint:#8F897E;
+  --line:#DCD3C3;--line2:#CBBFA9;--brass:#9A7A40;--brass-soft:#EFE5CF;
+  --serif:'EB Garamond',Garamond,'Times New Roman',serif;
+  --sans:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;-webkit-tap-highlight-color:transparent;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 max(22px,env(safe-area-inset-left))}
+.label{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);font-weight:600;margin:0 0 14px}
+h1,h2,h3{font-weight:500;margin:0;line-height:1.15}
+h2{font-size:clamp(26px,4vw,34px);letter-spacing:-.01em}
+p{margin:0}
+.muted{color:var(--muted)}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:4px}
+
+.bar{display:flex;justify-content:space-between;align-items:center;padding-block:22px;border-bottom:1px solid var(--line)}
+.name{font-family:var(--serif);font-size:21px;letter-spacing:.04em}
+.where{font-size:13px;color:var(--muted)}
+
+.hero{padding-block:64px 70px;max-width:760px}
+.hero h1{font-size:clamp(40px,6vw,62px);letter-spacing:-.02em;line-height:1.04}
+.hero .lead{font-size:clamp(17px,2vw,19px);color:var(--muted);margin-top:22px;max-width:46ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-block;text-decoration:none;font-weight:500;font-size:15.5px;padding:13px 24px;border-radius:999px;border:1px solid var(--ink);transition:background .15s,color .15s}
+.btn.solid{background:var(--ink);color:var(--ivory)}
+.btn.solid:hover{background:#000}
+.btn.ghost:hover{background:var(--ivory)}
+
+section{padding:68px 0;border-top:1px solid var(--line)}
+.two{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px}
+.big{font-family:var(--serif);font-size:clamp(24px,3.2vw,31px);line-height:1.3}
+.body p+p{margin-top:16px}
+.body p{color:var(--muted)}
+.body p b{color:var(--ink);font-weight:600}
+.story{font-family:var(--serif);font-size:20px;line-height:1.5;color:var(--ink) !important;font-style:italic}
+.traits{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding:0;list-style:none}
+.traits li{font-size:14px;border:1px solid var(--line2);border-radius:999px;padding:5px 14px;color:var(--muted)}
+
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:30px}
+.card{background:var(--ivory);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p,.card li{font-size:15.5px;color:var(--muted)}
+.card ul{margin:0;padding-left:18px}
+.card li+li{margin-top:6px}
+
+.ticks{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:14px;max-width:760px}
+.ticks li{position:relative;padding-left:24px;color:var(--muted);font-size:16px}
+.ticks li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--brass)}
+.ticks li b{color:var(--ink);font-weight:600}
+.no li::before{background:none;border:1.5px solid var(--faint);width:6px;height:6px}
+
+.areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:30px}
+.area{background:var(--ivory);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.area h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-family:var(--sans);font-weight:600;margin-bottom:10px}
+.area ol{list-style:none;margin:0;padding:0}
+.area li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:6px;padding:9px 0;border-top:1px solid var(--line);font-size:14.5px;line-height:1.4}
+.area li:first-child{border-top:0;padding-top:0}
+.area li .n{font-family:var(--serif);color:var(--brass);font-size:16px}
+.area li b{display:block;font-weight:600;font-size:15px;color:var(--ink)}
+.area li span{color:var(--muted)}
+.note{margin-top:18px;font-size:14.5px;color:var(--muted)}
+
+.asks{list-style:none;padding:0;margin:30px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.asks li{background:var(--ivory);border:1px solid var(--line);border-radius:14px;padding:22px}
+.asks .n{font-family:var(--serif);font-size:30px;color:var(--brass);line-height:1}
+.asks h3{font-size:19px;margin:12px 0 6px}
+.asks p{font-size:15px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
+.fact{border:1px solid var(--line2);border-radius:14px;padding:18px 20px}
+.fact .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.fact .v{font-family:var(--serif);font-size:24px;margin-top:4px;line-height:1.2}
+.fact p{font-size:14px;color:var(--muted);margin-top:4px}
+.keep{margin-top:22px;background:var(--brass-soft);border-radius:14px;padding:18px 20px;font-size:15.5px;max-width:760px}
+
+.rounds{list-style:none;padding:0;margin:30px 0 0;position:relative}
+.rounds::before{content:"";position:absolute;left:19px;top:20px;bottom:20px;border-left:1px dashed var(--line2)}
+.rounds li{position:relative;display:grid;grid-template-columns:40px minmax(0,1fr);gap:20px;padding:0 0 28px}
+.rounds li:last-child{padding-bottom:0}
+.dot{width:40px;height:40px;border-radius:50%;background:var(--cream);border:1px solid var(--brass);color:var(--brass);display:grid;place-items:center;font-family:var(--serif);font-size:18px;position:relative;z-index:1}
+.rounds h3{font-size:19px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.rounds h3 em{font-style:normal;font-size:14px;color:var(--brass);font-weight:600}
+.rounds p{color:var(--muted);margin-top:4px;font-size:15.5px;max-width:60ch}
+
+[lang=ar]{font-family:'Geeza Pro','Noto Naskh Arabic','Segoe UI',Tahoma,sans-serif}
+
+footer.wrap{padding-block:40px 56px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+footer a{color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:6px 18px}
+
+@media (max-width:820px){
+  .hero{padding-block:30px 52px}
+  .two{grid-template-columns:1fr;gap:20px}
+  .cards,.areas,.asks,.facts{grid-template-columns:1fr}
+  section{padding:54px 0}
+  .where{display:none}
+}
+@media (max-width:560px){
+  body{font-size:16.5px}
+  .rounds li{grid-template-columns:34px minmax(0,1fr);gap:14px}
+  .dot{width:34px;height:34px;font-size:16px}
+  .rounds::before{left:16.5px}
+  .btn{padding:13px 20px}
+  footer{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="wrap bar">
+  <span class="name">Ms. Madeleine</span>
+  <span class="where">Designer brief</span>
+</header>
+
+<main>
+<div class="wrap hero">
+  <p class="label">Designer brief · For our shortlist</p>
+  <h1>Our brief.</h1>
+  <p class="lead">Thank you for the call. Here is who we are, what we need, and what to send us by Friday 27 November, 12:00 noon, Dubai time.</p>
+  <div class="cta">
+    <a class="btn solid" href="#send">What to send us</a>
+    <a class="btn ghost" href="#job">The full job</a>
+  </div>
+</div>
+
+<section>
+  <div class="wrap two">
+    <div><p class="label">Who we are</p><h2>A cake shop built around one feeling.</h2></div>
+    <div class="body">
+      <p class="big">The joy of seeing something beautiful, and finding it tastes even better.</p>
+      <p class="story" style="margin-top:22px">There's a moment when you see a dessert so pretty, it stops you for a second. Then you take a bite, and it tastes even better. That's the moment we bake for at Ms. Madeleine. Our chefs learned pastry in professional kitchens, where they found a quiet joy in every batch that comes out just right. But the best part is yours: the "wow" when you see it, and the smile when you taste it. Desserts you know, and a few you're about to love, all done right. Lovely to look at. Lovelier to taste.</p>
+      <p><b>Why the name.</b> Of everything we bake, madeleines gave us that feeling the most. When a tray comes out and every little bump has risen just right, we still smile. So we named the shop after them.</p>
+      <p><b>Why us.</b> Most places give you one of the two joys. We give you both. Pretty shops often taste dry or too sweet, and properly made ones often look plain.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">What we serve</p>
+    <h2>Classic desserts, finished beautifully.</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>At the counter</h3>
+        <ul>
+          <li>Vintage piped whole cakes, 4 and 6 inch. The 4 inch is our signature.</li>
+          <li>Slices: fraisier, carrot, chocolate with whipped caramel, honey cake, Basque cheesecake.</li>
+          <li>Individual desserts: Paris-Brest, two entremets, raspberry cheesecake, tiramisu cup.</li>
+          <li>Madeleines, financiers, lemon loaf and shortbread. Madeleine gift boxes.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Coffee and tea</h3>
+        <ul>
+          <li>Espresso drinks, hot and iced, and three rotating signature lattes.</li>
+          <li>Tea in a vintage pot, matcha and hot chocolate.</li>
+          <li>A small shortbread with every hot coffee.</li>
+          <li>Slices cost AED 30 to 40 and a cappuccino AED 24: above everyday cafés, below the mall trend brands.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Beyond the shop</h3>
+        <p>Celebration and wedding cakes, dessert tables for events, and cakes for cafés and businesses. Most of our orders will come from here, so the brand has to work for brides, event planners and companies too, not only for walk-ins.</p>
+      </div>
+      <div class="card">
+        <h3>A delivery-only brand</h3>
+        <p>We also run a dessert brand sold only on delivery apps, under a different name. It needs a mini identity: a logo, fonts and colours. We supply the name.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two">
+    <div><p class="label">Where and who</p><h2>A small shop with a lit display.</h2></div>
+    <div>
+      <ul class="ticks" style="margin-top:0">
+        <li><b>Penrose Place, Jumeirah Village Circle (JVC), Dubai.</b> About 450 sq ft for guests and only a few tables. The front is mostly glass, so the lit cake display shows to the street. We open in December 2026.</li>
+        <li><b>The display</b> is a glass showcase in the style of a Tokyo patisserie, with a few vintage whole cakes. Not fully Tokyo, not fully Parisian.</li>
+        <li><b>An interior designer</b> is designing the shop. The brand and the interior must work together, so you will share files with them.</li>
+        <li><b>Who comes:</b> trend-aware Dubai, looking for something new and pretty and happy to pay AED 40 for a slice (they already go to places like L'ETO, Brunch &amp; Cake, EL&amp;N and Cherryhouse). Regulars who sit alone with a coffee and a slice, or grab and go. Families celebrating. Brides and wedding planners. Cafés and businesses that buy cakes from us.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two">
+    <div><p class="label">Look and feel</p><h2>The desserts are the jewellery.</h2></div>
+    <div class="body">
+      <p class="big">Beauty with brains. Silently loud and confident.</p>
+      <ul class="traits"><li>Quietly confident</li><li>Feminine</li><li>Elegant</li><li>Calm and uncluttered</li><li>Modern, with a vintage touch</li></ul>
+      <ul class="ticks">
+        <li><b>Everything else stays quiet</b> so the desserts shine. Very uncluttered.</li>
+        <li><b>Colour:</b> mostly cream and off-white, with one quiet, muted accent. Choosing that accent is part of your first take.</li>
+        <li><b>Materials:</b> marble and brass, softened with a little fabric. Warm, soft light. Vintage china that looks like jewellery.</li>
+        <li><b>Voice:</b> elegant, with few words. Our staff are warm and chatty and remember people.</li>
+        <li><b>How guests should leave:</b> thinking "that was beautiful" and "I felt welcome".</li>
+      </ul>
+      <p class="label" style="margin-top:34px">Not us</p>
+      <ul class="ticks no" style="margin-top:0">
+        <li>A pastel or colourful cake-shop look, or a cheap bake sale.</li>
+        <li>A jewellery boutique. The cakes are pretty and feminine; the rest stays simple.</li>
+        <li>An invented "Ms. Madeleine" character or mascot, or anything cheesy or forced.</li>
+        <li>A brand built around the madeleine. The name comes from it, but cakes are the main character.</li>
+        <li>"Neighbourhood cake shop". We are a fancy one.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Good to know before you start</p>
+    <h2>The practical bits.</h2>
+    <ul class="ticks">
+      <li><b>The name</b> is "Ms. Madeleine", spelled exactly like this, with the dot. Our registered trade name is "Ms. Madeleine Cafe", in Arabic <span lang="ar" dir="rtl">مس. مادلين كافيه</span>. The full registered name must appear once outside the shop; the logo itself can say "Ms. Madeleine".</li>
+      <li><b>Every logo needs an Arabic version</b>, for the shopfront and more.</li>
+      <li><b>A branded square board</b> sits under every mini dessert, from the display to the takeaway box. You decide its colour, logo placement and final size (our working size is about 9 × 9 cm). One takeaway box fits the board. No clear plastic slice boxes.</li>
+      <li><b>No single-use plastic.</b> Dubai bans single-use plastic cups, lids, plates, food containers and bags from 1 January 2026. Design for paper and other allowed materials.</li>
+      <li><b>Two Instagram accounts:</b> one for the shop's pastries, one for custom orders and catering. Our in-house team does the photos and posting.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="job">
+  <div class="wrap">
+    <p class="label">The full job</p>
+    <h2>34 design items in 14 areas.</h2>
+    <p class="muted" style="margin-top:12px;max-width:60ch">Each item covers exactly what is listed next to it, no more and no less.</p>
+    <div class="areas">
+      <div class="area"><h3>Brand strategy</h3><ol>
+        <li><span class="n">1</span><div><b>Discovery workshop and brand platform</b><span>Workshop and written brief; vision, mission and values; brand personality; brand promise and customer experience rules</span></div></li>
+        <li><span class="n">2</span><div><b>Brand voice</b><span>Brand story in short, medium and long versions; tagline; tone of voice and word list</span></div></li>
+      </ol></div>
+      <div class="area"><h3>Logo design</h3><ol>
+        <li><span class="n">3</span><div><b>Logo set</b><span>2 concepts shown on mock-ups, then: main logo, second logo, monogram, Arabic logo, and the English and Arabic logo together</span></div></li>
+        <li><span class="n">4</span><div><b>Logo versions and file pack</b><span>Wide, tall, light, dark, black and white; profile picture and website tab icon; final files in AI, EPS, SVG, PDF, PNG and JPG</span></div></li>
+      </ol></div>
+      <div class="area"><h3>Visual identity</h3><ol>
+        <li><span class="n">5</span><div><b>Look and feel</b><span>Mood board; colours with print and screen codes; fonts and pairings; shapes, borders and frames; patterns and textures</span></div></li>
+        <li><span class="n">6</span><div><b>Icon set</b><span>One comprehensive matching set, including allergy and diet icons</span></div></li>
+      </ol></div>
+      <div class="area"><h3>Brand guidelines</h3><ol>
+        <li><span class="n">7</span><div><b>Brand manual</b><span>Logo rules (spacing, smallest size, wrong uses); rules for fonts, patterns and shapes; use in print, on screen and in Arabic</span></div></li>
+        <li><span class="n">8</span><div><b>Mock-ups and handover</b><span>The brand shown on real items and in the shop; all source and final files in one folder</span></div></li>
+      </ol></div>
+      <div class="area"><h3>Packaging design</h3><ol>
+        <li><span class="n">9</span><div><b>Dessert board and single dessert box</b><span>Square board under each mini dessert, and the takeaway box sized to it</span></div></li>
+        <li><span class="n">10</span><div><b>Slice and mixed pastry boxes</b><span>Slice box; mixed pastry box with inserts</span></div></li>
+        <li><span class="n">11</span><div><b>Cake boxes</b><span>Sizes for the 4 and 6 inch vintage cakes and celebration cakes</span></div></li>
+        <li><span class="n">12</span><div><b>Madeleine gift box</b><span>Rigid box for 6 and 12 pieces</span></div></li>
+        <li><span class="n">13</span><div><b>Catering and delivery packaging</b><span>Bulk-order trays and lids; delivery seal and order label</span></div></li>
+        <li><span class="n">14</span><div><b>Seasonal sleeves</b><span>One sleeve system that fits the standard boxes</span></div></li>
+        <li><span class="n">15</span><div><b>Cup branding</b><span>Hot cup; cold cup; cup sleeve; carrier tray and carrier bag</span></div></li>
+        <li><span class="n">16</span><div><b>Bags and wrap</b><span>Takeaway paper bag; premium shopping bag; tissue paper</span></div></li>
+        <li><span class="n">17</span><div><b>Labels and inserts</b><span>Ingredients and allergen label; thank-you card</span></div></li>
+      </ol><p class="note" style="margin-top:10px">Every box comes with its structure, dieline (cut-out template) and print-ready file.</p></div>
+      <div class="area"><h3>Menu design</h3><ol>
+        <li><span class="n">18</span><div><b>Shop menu, in 4 formats</b><span>Cakes, desserts, coffee, tea and drinks, laid out as: printed menu with cover; counter menu; PDF menu; QR menu (table card and the page it opens)</span></div></li>
+      </ol></div>
+      <div class="area"><h3>Signs and display</h3><ol>
+        <li><span class="n">19</span><div><b>Shopfront</b><span>Main sign in English and Arabic; door logo and opening hours; opening-soon hoarding and grand-opening banner</span></div></li>
+        <li><span class="n">20</span><div><b>Direction signs</b><span>Parking and access; queue and order; pickup and delivery collection</span></div></li>
+        <li><span class="n">21</span><div><b>Display graphics</b><span>Cake display name and price tags; shelf graphics</span></div></li>
+      </ol></div>
+      <div class="area"><h3>Table items</h3><ol>
+        <li><span class="n">22</span><div><b>Table branding</b><span>Napkins; placemats; coasters; small mark on dine-in and espresso cups</span></div></li>
+        <li><span class="n">23</span><div><b>Guest cards</b><span>Wi-Fi card; feedback and review card; loyalty card</span></div></li>
+      </ol></div>
+      <div class="area"><h3>Online profiles and launch</h3><ol>
+        <li><span class="n">24</span><div><b>Online profiles</b><span>Instagram look and highlight covers; Google Business profile; WhatsApp Business profile; delivery app listing (cover, logo tile, menu layout)</span></div></li>
+        <li><span class="n">25</span><div><b>Launch posts and ad templates</b><span>Opening-soon and grand-opening posts (3 posts and 3 stories); ad layouts for offers, new items and seasons (one each)</span></div></li>
+      </ol></div>
+      <div class="area"><h3>Uniforms</h3><ol>
+        <li><span class="n">26</span><div><b>Uniforms and staff ID</b><span>Barista apron; front-of-house uniform; chef uniform; cap; name badge, ID card and lanyard; fabric colours and embroidery files</span></div></li>
+      </ol></div>
+      <div class="area"><h3>Stationery</h3><ol>
+        <li><span class="n">27</span><div><b>Stationery set</b><span>Business card; letterhead; envelope and folder; email signature; company stamp</span></div></li>
+        <li><span class="n">28</span><div><b>Business form templates</b><span>Invoice, quote, purchase order and delivery note; corporate order form and price sheet</span></div></li>
+      </ol></div>
+      <div class="area"><h3>Sales and catering material</h3><ol>
+        <li><span class="n">29</span><div><b>Company profile and sales deck</b><span>Company profile; editable sales deck for events and businesses; partnership proposal template</span></div></li>
+        <li><span class="n">30</span><div><b>Brochures and catalogue</b><span>Corporate gifts brochure; office coffee catering brochure; catering and corporate menu; wholesale cake catalogue</span></div></li>
+        <li><span class="n">31</span><div><b>Wedding and celebration lookbook</b><span>Wedding brochure or lookbook with order form</span></div></li>
+        <li><span class="n">32</span><div><b>Event dessert table kit</b><span>Dessert name cards and table sign</span></div></li>
+      </ol></div>
+      <div class="area"><h3>Coffee retail and merch</h3><ol>
+        <li><span class="n">33</span><div><b>Coffee retail</b><span>Coffee bean bag; bean label with roast details; graphics for coffee equipment merch</span></div></li>
+      </ol></div>
+      <div class="area"><h3>Delivery brand</h3><ol>
+        <li><span class="n">34</span><div><b>1 delivery-only dessert brand: mini identity</b><span>Logo, typography and colour palette only (name supplied by us)</span></div></li>
+      </ol></div>
+    </div>
+    <p class="note">Not included: the website (our IT team), and photo shoots, video and posting (our marketing team).</p>
+  </div>
+</section>
+
+<section id="send">
+  <div class="wrap">
+    <p class="label">What to send us</p>
+    <h2>Your first take.</h2>
+    <ol class="asks">
+      <li><span class="n">1</span><h3>A colour palette</h3><p>The colours you would choose for us, with your reason for each one.</p></li>
+      <li><span class="n">2</span><h3>A rough logo sketch</h3><p>A work in progress, by hand or on screen. No finished logo, please.</p></li>
+      <li><span class="n">3</span><h3>Your vision</h3><p>How Ms. Madeleine should look, sound and feel, and why. A few lines to a page.</p></li>
+    </ol>
+    <div class="facts">
+      <div class="fact"><div class="k">Due</div><div class="v">Fri 27 Nov, 12:00</div><p>Noon, Dubai time.</p></div>
+      <div class="fact"><div class="k">Format</div><div class="v">One PDF or a link</div><p>PDF up to 10 MB. Three pages at most.</p></div>
+      <div class="fact"><div class="k">How</div><div class="v">Reply to our email</div><p>The one that brought you here, from connect@msmadeleine.com.</p></div>
+    </div>
+    <p class="keep">This step is unpaid, so we keep it small. Your work stays yours: if we do not hire you, we do not use your palette, your sketch or anything close to them.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">What happens next</p>
+    <h2>A final meeting, then we choose.</h2>
+    <ol class="rounds">
+      <li><span class="dot">1</span><div><h3>Final meeting <em>Sat 28 Nov</em></h3><p>We invite our top 3 to a 30-minute video call. You walk us through your first take, we talk it through, and we agree price and timing: your price for each part of the job, within AED 8,000 for the full scope, all in.</p></div></li>
+      <li><span class="dot">2</span><div><h3>We choose <em>Sat 28 Nov</em></h3><p>One designer is hired. We tell all three finalists the same day.</p></div></li>
+      <li><span class="dot">3</span><div><h3>The work starts <em>From Mon 30 Nov</em></h3><p>The logo, colours and opening items come first. We open in December. Payment is in stages: each part is paid when it is delivered and approved. All final and source files, and full rights to the brand, pass to Ms. Madeleine on payment.</p></div></li>
+    </ol>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <span>Questions? Reply to our email or write to <a href="mailto:connect@msmadeleine.com">connect@msmadeleine.com</a>. We never ask designers to pay anything.</span>
+  <span class="links"><a href="/designer/">The designer call</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></span>
+</footer>
+
+</body>
+</html>
