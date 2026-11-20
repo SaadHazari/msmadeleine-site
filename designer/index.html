@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ms. Madeleine is looking for its designer</title>
-<meta name="description" content="Ms. Madeleine, a premium cake shop with coffee opening in Dubai this December, is looking for the designer who will create its brand and packaging. Budget AED 8,000. Apply by 26 November 2026.">
+<meta name="description" content="Ms. Madeleine, a premium cake shop with coffee opening in Dubai this December, is looking for the designer who will create its brand and packaging. Budget AED 8,000. Apply by 23 November 2026.">
 <meta property="og:title" content="Ms. Madeleine is looking for its designer">
-<meta property="og:description" content="Our name is ready. Our logo is not. Apply by 26 November 2026.">
+<meta property="og:description" content="Our name is ready. Our logo is not. Apply by 23 November 2026.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://msmadeleine.com/designer/">
 <meta property="og:image" content="https://msmadeleine.com/assets/og-designer.png">
@@ -157,7 +157,7 @@ footer a{color:var(--muted)}
     <h1>Our name is ready.<br>Our logo is not.</h1>
     <p class="lead">Ms. Madeleine is a premium cake shop with coffee, opening in Dubai this December. We are looking for the designer who will create our whole brand.</p>
     <div class="cta">
-      <a class="btn solid" href="#apply">Apply by 26 November</a>
+      <a class="btn solid" href="#apply">Apply by 23 November</a>
       <a class="btn ghost" href="#job">See the job</a>
     </div>
   </div>
@@ -222,7 +222,7 @@ footer a{color:var(--muted)}
     <div class="facts">
       <div class="fact"><div class="k">Budget</div><div class="v">AED 8,000</div><p>For the full scope, all in.</p></div>
       <div class="fact"><div class="k">Payment</div><div class="v">In stages</div><p>Each stage is paid when it is delivered and approved.</p></div>
-      <div class="fact"><div class="k">Timing</div><div class="v">From 4 Dec</div><p>The logo, colours and opening items come first. We open in December.</p></div>
+      <div class="fact"><div class="k">Timing</div><div class="v">From 28 Nov</div><p>The logo, colours and opening items come first. We open in December.</p></div>
     </div>
   </div>
 </section>
@@ -232,10 +232,10 @@ footer a{color:var(--muted)}
     <p class="label">How we choose</p>
     <h2>Three short rounds.</h2>
     <ol class="rounds">
-      <li><span class="dot">1</span><div><h3>Your portfolio <em>Apply by Thu 26 Nov</em></h3><p>Send the form below. We look at every portfolio and tell the shortlist by Fri 27 Nov.</p></div></li>
-      <li><span class="dot">2</span><div><h3>A short call <em>Sat 28 to Mon 30 Nov</em></h3><p>About 20 minutes on video. We talk about your past work and how you would approach ours.</p></div></li>
-      <li><span class="dot">3</span><div><h3>A one-page plan <em>Due Thu 3 Dec</em></h3><p>Three finalists get the full brief. Each sends one page: a mood board, three words for the direction, rough sketches, a draft colour palette with your reasons, and your price for each part of the job. No finished logo.</p></div></li>
-      <li><span class="dot">4</span><div><h3>We choose <em>Fri 4 Dec</em></h3><p>One designer is hired, and the work starts the same week.</p></div></li>
+      <li><span class="dot">1</span><div><h3>Your portfolio <em>Apply by Mon 23 Nov</em></h3><p>Send the form below. We look at every portfolio and email the shortlist on Tue 24 Nov.</p></div></li>
+      <li><span class="dot">2</span><div><h3>A short call <em>Tue 24 to Wed 25 Nov</em></h3><p>About 20 minutes on video. We tell you who we are and what we stand for. You tell us about your work and how you would approach ours.</p></div></li>
+      <li><span class="dot">3</span><div><h3>A one-page plan <em>Due Fri 27 Nov, 12:00</em></h3><p>Three finalists get the full brief on Wed 25 Nov. Each sends one page: a mood board, three words for the direction, rough sketches, a draft colour palette with your reasons, and your price for each part of the job. No finished logo.</p></div></li>
+      <li><span class="dot">4</span><div><h3>We choose <em>Fri 27 Nov</em></h3><p>One designer is hired, and the work starts right away.</p></div></li>
     </ol>
     <p class="keep">Your work stays yours. If we do not hire you, we do not use your plan, your palette or anything close to them.</p>
   </div>
@@ -245,7 +245,7 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <p class="label">Apply</p>
     <h2>Show us your work.</h2>
-    <p class="muted" style="margin-top:10px">Applications close on Thursday 26 November.</p>
+    <p class="muted" style="margin-top:10px" id="closeline">Applications close on Monday 23 November at 11:59 pm, Dubai time.</p>
 
     <form id="form" novalidate>
       <div class="hp" aria-hidden="true"><label for="hp">Leave this empty</label><input type="text" id="hp" name="_honey" tabindex="-1" autocomplete="off"></div>
@@ -281,6 +281,8 @@ footer a{color:var(--muted)}
 
 <script>
 (function(){
+  var CLOSES=Date.parse('2026-11-24T00:00:00+04:00');
+  if(Date.now()>=CLOSES){var f0=document.getElementById('form');f0.innerHTML='<p class="msg ok" style="display:block;grid-column:1/-1">Applications are now closed. Thank you to everyone who applied. We email the shortlist on Tuesday 24 November.</p>';document.getElementById('closeline').textContent='Applications closed on Monday 23 November.';return;}
   var ENDPOINT='https://script.google.com/macros/s/AKfycbydJSNlwbqfOIjvgabwbw1klf0avX08liv5uNvgxDrz6mSyfhEbxcTLjNL5MRCp6wjV/exec';
   var MAX=10*1024*1024;
   var form=document.getElementById('form'),btn=document.getElementById('btn'),msg=document.getElementById('msg');
@@ -304,7 +306,7 @@ footer a{color:var(--muted)}
       var j=await r.json();
       if(!j.ok)throw new Error(j.error||'failed');
       form.reset();btn.textContent='Sent';
-      show('Thank you. Your application is in (ref '+j.ref+'). We will tell the shortlist by Friday 27 November.',true);
+      show('Thank you. Your application is in (ref '+j.ref+'). We will email the shortlist on Tuesday 24 November.',true);
     }catch(err){
       btn.disabled=false;btn.textContent='Send my application';
       show(ERR[err.message]||'Something went wrong. Please try again, or email your portfolio to connect@msmadeleine.com.',false);
