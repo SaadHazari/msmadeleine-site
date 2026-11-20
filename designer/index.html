@@ -95,6 +95,9 @@ label{font-size:14px;font-weight:600}
 label small{font-weight:400;color:var(--faint)}
 input,select,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--ivory);border:1px solid var(--line2);border-radius:10px;padding:12px 14px;width:100%}
 textarea{min-height:110px;resize:vertical}
+input[type=file]{padding:10px 12px;font-size:15px;cursor:pointer}
+input[type=file]::file-selector-button{font:inherit;font-size:14px;border:1px solid var(--line2);background:var(--cream);border-radius:999px;padding:7px 14px;margin-right:12px;cursor:pointer}
+.hint{font-size:13px;color:var(--faint)}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--brass);box-shadow:0 0 0 3px var(--brass-soft)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .agree{grid-column:1/-1;display:flex;gap:12px;align-items:flex-start;font-size:14.5px;font-weight:400;line-height:1.45;color:var(--ink);cursor:pointer}
@@ -244,22 +247,19 @@ footer a{color:var(--muted)}
     <h2>Show us your work.</h2>
     <p class="muted" style="margin-top:10px">Applications close on Thursday 26 November.</p>
 
-    <form id="form" action="https://formsubmit.co/connect@msmadeleine.com" method="POST" novalidate>
-      <input type="hidden" name="_subject" value="Designer application, Ms. Madeleine">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_autoresponse" value="Thank you for applying to design the Ms. Madeleine brand. We look at every portfolio and will tell the shortlist by Friday 27 November. Ms. Madeleine, connect@msmadeleine.com">
+    <form id="form" novalidate>
       <div class="hp" aria-hidden="true"><label for="hp">Leave this empty</label><input type="text" id="hp" name="_honey" tabindex="-1" autocomplete="off"></div>
 
       <div class="f"><label for="name">Your name</label><input id="name" name="Name" type="text" autocomplete="name" required></div>
       <div class="f"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
       <div class="f"><label for="wa">WhatsApp number <small>(optional)</small></label><input id="wa" name="WhatsApp" type="tel" autocomplete="tel" placeholder="+971"></div>
       <div class="f"><label for="based">Where are you based?</label>
-        <select id="based" name="Based in" required>
+        <select id="based" name="Based in" required data-msg="Please choose where you are based.">
           <option value="" selected disabled>Choose one</option>
           <option>Dubai</option><option>Elsewhere in the UAE</option><option>Outside the UAE</option>
         </select></div>
-      <div class="f full"><label for="portfolio">Portfolio link <small>Behance, Instagram or your own site</small></label><input id="portfolio" name="Portfolio" type="text" inputmode="url" data-url placeholder="behance.net/yourname" required></div>
+      <div class="f full"><label for="portfolio">Portfolio link <small>Behance, Instagram or your own site</small></label><input id="portfolio" name="Portfolio" type="text" inputmode="url" data-url placeholder="behance.net/yourname"></div>
+      <div class="f full"><label for="pdf">Or upload a PDF portfolio <small>(up to 10 MB)</small></label><input id="pdf" name="pdf" type="file" accept="application/pdf,.pdf"><small class="hint">Send a link, a PDF, or both.</small></div>
       <div class="f full"><label for="food">A café, bakery or food brand you designed <small>(optional, a link)</small></label><input id="food" name="Food brand work" type="text" inputmode="url" data-url placeholder="Link to the project"></div>
       <div class="f"><label for="price">Your price for the full scope (AED)</label><input id="price" name="Price for full scope (AED)" type="number" inputmode="numeric" min="0" step="50" required></div>
       <div class="f"><label for="days">Days you need from start to the final logo set</label><input id="days" name="Days to final logo set" type="number" inputmode="numeric" min="1" max="90" required></div>
@@ -281,22 +281,34 @@ footer a{color:var(--muted)}
 
 <script>
 (function(){
+  var ENDPOINT='https://script.google.com/macros/s/AKfycbydJSNlwbqfOIjvgabwbw1klf0avX08liv5uNvgxDrz6mSyfhEbxcTLjNL5MRCp6wjV/exec';
+  var MAX=10*1024*1024;
   var form=document.getElementById('form'),btn=document.getElementById('btn'),msg=document.getElementById('msg');
+  var ERR={too_big:'Your PDF is over 10 MB. Please send a smaller file or a link.',not_pdf:'Please upload a PDF file.',portfolio:'Please add a portfolio link or upload a PDF.',consent:'Please tick the box to agree to the Privacy Policy.',missing:'Please check your name and email.'};
   function show(t,ok){msg.textContent=t;msg.className='msg '+(ok?'ok':'err');}
-  form.addEventListener('submit',function(e){
+  function val(id){var el=document.getElementById(id);return el?String(el.value||'').trim():'';}
+  function readPdf(f){return new Promise(function(res,rej){var r=new FileReader();r.onload=function(){res(String(r.result).split(',')[1]||'');};r.onerror=rej;r.readAsDataURL(f);});}
+  form.addEventListener('submit',async function(e){
     e.preventDefault();
     [].slice.call(form.querySelectorAll('[data-url]')).forEach(function(el){var v=el.value.trim();if(v&&!/^https?:\/\//i.test(v))el.value='https://'+v;});
     var bad=[].slice.call(form.querySelectorAll('[required]')).filter(function(el){return !el.checkValidity();});
     if(bad.length){bad[0].focus();show(bad[0].dataset.msg||('Please fill in '+bad[0].labels[0].childNodes[0].textContent.trim().toLowerCase()+' correctly.'),false);return;}
-    var data={};new FormData(form).forEach(function(v,k){data[k]=v;});
-    msg.className='msg';btn.disabled=true;btn.textContent='Sending...';
-    fetch('https://formsubmit.co/ajax/connect@msmadeleine.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-      .then(function(r){return r.json();})
-      .then(function(j){
-        if(String(j.success)==='true'){form.reset();show('Thank you. Your application is in. We will tell the shortlist by Friday 27 November.',true);btn.textContent='Sent';}
-        else{throw new Error(j.message||'failed');}
-      })
-      .catch(function(){btn.disabled=false;btn.textContent='Send my application';show('Something went wrong. Please try again, or email your portfolio to connect@msmadeleine.com.',false);});
+    var file=(document.getElementById('pdf').files||[])[0],link=val('portfolio');
+    if(!link&&!file){document.getElementById('portfolio').focus();show(ERR.portfolio,false);return;}
+    if(file){if(file.size>MAX){show(ERR.too_big,false);return;}if(!/\.pdf$/i.test(file.name)&&file.type!=='application/pdf'){show(ERR.not_pdf,false);return;}}
+    msg.className='msg';btn.disabled=true;btn.textContent=file?'Uploading your PDF...':'Sending...';
+    try{
+      var data={_honey:val('hp'),name:val('name'),email:val('email'),whatsapp:val('wa'),based:val('based'),portfolio:link,food:val('food'),price:val('price'),days:val('days'),note:val('note'),agree:document.getElementById('agree').checked?'Yes':''};
+      if(file){data.pdf={name:file.name,data:await readPdf(file)};}
+      var r=await fetch(ENDPOINT,{method:'POST',body:JSON.stringify(data)});
+      var j=await r.json();
+      if(!j.ok)throw new Error(j.error||'failed');
+      form.reset();btn.textContent='Sent';
+      show('Thank you. Your application is in (ref '+j.ref+'). We will tell the shortlist by Friday 27 November.',true);
+    }catch(err){
+      btn.disabled=false;btn.textContent='Send my application';
+      show(ERR[err.message]||'Something went wrong. Please try again, or email your portfolio to connect@msmadeleine.com.',false);
+    }
   });
 })();
 </script>
